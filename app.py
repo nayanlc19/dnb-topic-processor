@@ -220,7 +220,7 @@ def process_subjects():
         ("vs_questions", "vs", "Vascular Surgery"),
     ]
 
-    processing_state['start_time'] = datetime.now()
+    processing_state['start_time'] = datetime.now().isoformat()
     log_message("🚀 Started topic standardization process")
 
     for table_name, subject_key, display_name in subjects:
