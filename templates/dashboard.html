@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Topic Standardization Progress</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Monaco', 'Courier New', monospace;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #4ec9b0;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .controls {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+        }
+
+        button {
+            background: #007acc;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #005a9e;
+        }
+
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+        }
+
+        .stop-btn {
+            background: #d9534f;
+        }
+
+        .stop-btn:hover {
+            background: #c9302c;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .stat-card {
+            background: #252526;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #007acc;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #858585;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #4ec9b0;
+        }
+
+        .progress-section {
+            background: #252526;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .progress-bar-container {
+            background: #3c3c3c;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #4ec9b0 0%, #007acc 100%);
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .subject-progress {
+            margin-top: 15px;
+        }
+
+        .subject-name {
+            color: #ce9178;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .tqdm-bar {
+            background: #3c3c3c;
+            height: 25px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .tqdm-fill {
+            height: 100%;
+            background: #76b947;
+            transition: width 0.3s ease;
+        }
+
+        .tqdm-text {
+            font-size: 12px;
+            color: #858585;
+            font-family: 'Courier New', monospace;
+        }
+
+        .logs {
+            background: #1e1e1e;
+            border: 1px solid #3c3c3c;
+            border-radius: 6px;
+            padding: 15px;
+            height: 300px;
+            overflow-y: auto;
+            font-size: 13px;
+        }
+
+        .log-entry {
+            margin-bottom: 8px;
+            padding: 5px;
+            border-left: 3px solid transparent;
+        }
+
+        .log-time {
+            color: #858585;
+            margin-right: 10px;
+        }
+
+        .log-message {
+            color: #d4d4d4;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .status-running {
+            background: #76b947;
+            color: white;
+        }
+
+        .status-stopped {
+            background: #d9534f;
+            color: white;
+        }
+
+        .status-idle {
+            background: #858585;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .processing-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #76b947;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 DNB Topic Standardization Progress</h1>
+
+        <div class="controls">
+            <button id="startBtn" onclick="startProcessing()">▶ Start Processing</button>
+            <button id="stopBtn" class="stop-btn" onclick="stopProcessing()" disabled>⏸ Stop Processing</button>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-label">Status</div>
+                <div class="stat-value">
+                    <span id="statusBadge" class="status-badge status-idle">Idle</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total Processed</div>
+                <div class="stat-value" id="totalProcessed">0</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Subjects Completed</div>
+                <div class="stat-value" id="subjectsCompleted">0 / 40</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Elapsed Time</div>
+                <div class="stat-value" id="elapsedTime">00:00:00</div>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <div class="progress-header">
+                <div>Overall Progress</div>
+                <div id="overallPercent">0%</div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar" id="overallProgressBar" style="width: 0%">0%</div>
+            </div>
+
+            <div class="subject-progress" id="subjectProgress" style="display: none;">
+                <div class="subject-name">
+                    <span class="processing-indicator"></span>
+                    <span id="currentSubject">-</span>
+                </div>
+                <div class="tqdm-bar">
+                    <div class="tqdm-fill" id="subjectProgressBar" style="width: 0%"></div>
+                </div>
+                <div class="tqdm-text" id="tqdmText">0/0 [00:00<??, 0.00it/s]</div>
+                <div style="margin-top: 10px; font-size: 12px;">
+                    <span style="color: #858585;">Current Topic:</span>
+                    <span id="currentTopic" style="color: #4ec9b0;">-</span>
+                    <span style="color: #858585; margin-left: 15px;">Confidence:</span>
+                    <span id="confidence" style="color: #ce9178;">0%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <h3 style="margin-bottom: 15px; color: #4ec9b0;">📋 Activity Log</h3>
+            <div class="logs" id="logs">
+                <div class="log-entry">
+                    <span class="log-time">--:--:--</span>
+                    <span class="log-message">Waiting to start...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let startTime = null;
+        let timerInterval = null;
+
+        const eventSource = new EventSource('/stream');
+
+        eventSource.onmessage = function(event) {
+            const data = JSON.parse(event.data);
+            updateUI(data);
+        };
+
+        function updateUI(state) {
+            // Status badge
+            const statusBadge = document.getElementById('statusBadge');
+            if (state.is_running) {
+                statusBadge.textContent = 'Running';
+                statusBadge.className = 'status-badge status-running';
+                document.getElementById('startBtn').disabled = true;
+                document.getElementById('stopBtn').disabled = false;
+                document.getElementById('subjectProgress').style.display = 'block';
+
+                if (!startTime && state.start_time) {
+                    startTime = new Date(state.start_time);
+                    if (!timerInterval) {
+                        timerInterval = setInterval(updateElapsedTime, 1000);
+                    }
+                }
+            } else {
+                if (state.processed_total > 0) {
+                    statusBadge.textContent = 'Stopped';
+                    statusBadge.className = 'status-badge status-stopped';
+                } else {
+                    statusBadge.textContent = 'Idle';
+                    statusBadge.className = 'status-badge status-idle';
+                }
+                document.getElementById('startBtn').disabled = false;
+                document.getElementById('stopBtn').disabled = true;
+            }
+
+            // Stats
+            document.getElementById('totalProcessed').textContent = state.processed_total.toLocaleString();
+            document.getElementById('subjectsCompleted').textContent = `${state.subjects_completed} / 40`;
+
+            // Overall progress
+            const overallPercent = state.subjects_completed / 40 * 100;
+            document.getElementById('overallPercent').textContent = `${overallPercent.toFixed(1)}%`;
+            document.getElementById('overallProgressBar').style.width = `${overallPercent}%`;
+            document.getElementById('overallProgressBar').textContent = `${overallPercent.toFixed(1)}%`;
+
+            // Subject progress
+            if (state.current_subject) {
+                document.getElementById('currentSubject').textContent = state.current_subject;
+                const subjectPercent = state.total_questions > 0
+                    ? (state.current_question / state.total_questions * 100)
+                    : 0;
+                document.getElementById('subjectProgressBar').style.width = `${subjectPercent}%`;
+
+                // tqdm-style text
+                const elapsed = startTime ? Math.floor((new Date() - startTime) / 1000) : 0;
+                const rate = elapsed > 0 ? (state.current_question / elapsed).toFixed(2) : '0.00';
+                const eta = rate > 0 ? Math.floor((state.total_questions - state.current_question) / rate) : 0;
+                const etaStr = eta > 0 ? formatTime(eta) : '??';
+
+                document.getElementById('tqdmText').textContent =
+                    `${state.current_question}/${state.total_questions} [${formatTime(elapsed)}<${etaStr}, ${rate}it/s]`;
+
+                document.getElementById('currentTopic').textContent = state.current_topic || '-';
+                document.getElementById('confidence').textContent = `${(state.confidence * 100).toFixed(0)}%`;
+            }
+
+            // Logs
+            const logsContainer = document.getElementById('logs');
+            if (state.logs && state.logs.length > 0) {
+                logsContainer.innerHTML = state.logs.map(log => `
+                    <div class="log-entry">
+                        <span class="log-time">${log.time}</span>
+                        <span class="log-message">${log.message}</span>
+                    </div>
+                `).join('');
+                logsContainer.scrollTop = logsContainer.scrollHeight;
+            }
+        }
+
+        function updateElapsedTime() {
+            if (!startTime) return;
+            const elapsed = Math.floor((new Date() - startTime) / 1000);
+            document.getElementById('elapsedTime').textContent = formatTime(elapsed);
+        }
+
+        function formatTime(seconds) {
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = seconds % 60;
+            return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+        }
+
+        async function startProcessing() {
+            const response = await fetch('/start', { method: 'POST' });
+            const data = await response.json();
+            console.log('Started:', data);
+        }
+
+        async function stopProcessing() {
+            const response = await fetch('/stop', { method: 'POST' });
+            const data = await response.json();
+            console.log('Stopped:', data);
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+        }
+
+        // Initial load
+        fetch('/status')
+            .then(r => r.json())
+            .then(updateUI);
+    </script>
+</body>
+</html>

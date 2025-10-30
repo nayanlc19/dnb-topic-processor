@@ -1,0 +1,609 @@
+{
+  "meta": {
+    "version": "1.0",
+    "description": "Master medical taxonomy for DNB questions - covers ALL possible topics across all subjects",
+    "last_updated": "2025-10-30"
+  },
+  "cross_cutting_topics": {
+    "description": "Topics that appear across multiple subjects",
+    "categories": [
+      {
+        "main_topic": "Research Methodology",
+        "subtopics": [
+          "Study Design and Types",
+          "Sampling Methods",
+          "Hypothesis Testing",
+          "Data Collection and Measurement",
+          "Research Ethics and IRB",
+          "Clinical Trials",
+          "Systematic Reviews and Meta-Analysis",
+          "Evidence-Based Medicine"
+        ]
+      },
+      {
+        "main_topic": "Biostatistics",
+        "subtopics": [
+          "Descriptive Statistics",
+          "Inferential Statistics",
+          "Probability and Distributions",
+          "Hypothesis Testing and P-values",
+          "Correlation and Regression",
+          "Survival Analysis",
+          "Diagnostic Test Evaluation",
+          "Sample Size Calculation"
+        ]
+      },
+      {
+        "main_topic": "Medical Ethics and Law",
+        "subtopics": [
+          "Informed Consent",
+          "Patient Rights",
+          "Professional Ethics",
+          "End-of-Life Issues",
+          "Confidentiality and Privacy",
+          "Medical Negligence",
+          "Medicolegal Documentation"
+        ]
+      },
+      {
+        "main_topic": "Communication Skills",
+        "subtopics": [
+          "Doctor-Patient Communication",
+          "Breaking Bad News",
+          "Counseling Skills",
+          "Team Communication",
+          "Documentation"
+        ]
+      },
+      {
+        "main_topic": "Quality and Safety",
+        "subtopics": [
+          "Patient Safety",
+          "Quality Improvement",
+          "Infection Control",
+          "Medication Safety",
+          "Clinical Governance",
+          "Adverse Event Management"
+        ]
+      },
+      {
+        "main_topic": "Health Systems and Policy",
+        "subtopics": [
+          "Healthcare Delivery Systems",
+          "Health Insurance and Financing",
+          "National Health Programs",
+          "Health Policy",
+          "Universal Health Coverage"
+        ]
+      }
+    ]
+  },
+  "subject_specific_topics": {
+    "description": "Standard topics organized by medical subject with reference books",
+    "subjects": {
+      "anaesth": {
+        "reference_book": "Miller's Anesthesia",
+        "topics": [
+          "Pharmacology of Anesthetics",
+          "Airway Management",
+          "Regional Anesthesia",
+          "Neuroanesthesia",
+          "Cardiac Anesthesia",
+          "Thoracic Anesthesia",
+          "Obstetric Anesthesia",
+          "Pediatric Anesthesia",
+          "Pain Management",
+          "Critical Care",
+          "Trauma and Emergency"
+        ]
+      },
+      "anat": {
+        "reference_book": "Gray's Anatomy",
+        "topics": [
+          "Upper Limb",
+          "Lower Limb",
+          "Thorax",
+          "Abdomen and Pelvis",
+          "Head and Neck",
+          "Back and Spine",
+          "Neuroanatomy",
+          "Embryology",
+          "Histology",
+          "Surface and Radiological Anatomy"
+        ]
+      },
+      "biochem": {
+        "reference_book": "Harper's Biochemistry",
+        "topics": [
+          "Proteins and Enzymes",
+          "Carbohydrate Metabolism",
+          "Lipid Metabolism",
+          "Nucleic Acids and Molecular Biology",
+          "Vitamins and Minerals",
+          "Clinical Biochemistry",
+          "Hormones and Signal Transduction"
+        ]
+      },
+      "physio": {
+        "reference_book": "Guyton Physiology",
+        "topics": [
+          "General Physiology",
+          "Nervous System",
+          "Cardiovascular System",
+          "Respiratory System",
+          "Renal System",
+          "Gastrointestinal System",
+          "Endocrine System",
+          "Reproductive Physiology",
+          "Exercise and Sports Physiology"
+        ]
+      },
+      "pharma": {
+        "reference_book": "Goodman & Gilman",
+        "topics": [
+          "General Pharmacology",
+          "Autonomic Drugs",
+          "Cardiovascular Drugs",
+          "Respiratory Drugs",
+          "GI and Metabolic Drugs",
+          "CNS Drugs",
+          "Antimicrobials",
+          "Anticancer Drugs",
+          "Toxicology"
+        ]
+      },
+      "patho": {
+        "reference_book": "Robbins Pathology",
+        "topics": [
+          "General Pathology",
+          "Inflammation and Repair",
+          "Neoplasia",
+          "Hemodynamic Disorders",
+          "Genetic Disorders",
+          "Immunopathology",
+          "Infectious Diseases",
+          "Systemic Pathology"
+        ]
+      },
+      "micro": {
+        "reference_book": "Ananthanarayan Microbiology",
+        "topics": [
+          "General and Systemic Bacteriology",
+          "Virology",
+          "Mycology",
+          "Parasitology",
+          "Immunology",
+          "Infection Control",
+          "Antimicrobial Agents"
+        ]
+      },
+      "med": {
+        "reference_book": "Harrison's Medicine",
+        "topics": [
+          "Cardiology",
+          "Pulmonology",
+          "Gastroenterology and Hepatology",
+          "Nephrology",
+          "Endocrinology",
+          "Hematology",
+          "Oncology",
+          "Infectious Diseases",
+          "Rheumatology",
+          "Neurology",
+          "Critical Care"
+        ]
+      },
+      "surg": {
+        "reference_book": "Bailey & Love Surgery",
+        "topics": [
+          "Surgical Principles",
+          "Trauma and Emergency",
+          "GI Surgery",
+          "Hepatobiliary Surgery",
+          "Breast and Endocrine",
+          "Vascular Surgery",
+          "Urology",
+          "Transplant Surgery",
+          "Minimally Invasive Surgery"
+        ]
+      },
+      "ped": {
+        "reference_book": "Nelson Pediatrics",
+        "topics": [
+          "Growth and Development",
+          "Nutrition and Feeding",
+          "Neonatology",
+          "Genetics and Congenital Disorders",
+          "Infectious Diseases",
+          "Respiratory Disorders",
+          "Cardiovascular Disorders",
+          "Gastroenterology",
+          "Neurology",
+          "Hematology and Oncology"
+        ]
+      },
+      "obgy": {
+        "reference_book": "Williams Obstetrics",
+        "topics": [
+          "Normal Pregnancy",
+          "High-Risk Pregnancy",
+          "Medical Disorders in Pregnancy",
+          "Labor and Delivery",
+          "Gynecological Disorders",
+          "Reproductive Endocrinology",
+          "Infertility",
+          "Gynecological Oncology"
+        ]
+      },
+      "psych": {
+        "reference_book": "Kaplan Psychiatry",
+        "topics": [
+          "Psychiatric Assessment",
+          "Psychotic Disorders",
+          "Mood Disorders",
+          "Anxiety and Stress Disorders",
+          "Substance Use Disorders",
+          "Personality Disorders",
+          "Child Psychiatry",
+          "Psychopharmacology"
+        ]
+      },
+      "ortho": {
+        "reference_book": "Apley's Orthopaedics",
+        "topics": [
+          "Fractures and Dislocations",
+          "Upper Limb Disorders",
+          "Lower Limb Disorders",
+          "Spine Disorders",
+          "Bone Infections",
+          "Bone Tumors",
+          "Arthritis",
+          "Pediatric Orthopedics",
+          "Sports Medicine"
+        ]
+      },
+      "ent": {
+        "reference_book": "Dhingra ENT",
+        "topics": [
+          "Ear Disorders",
+          "Nose and Paranasal Sinuses",
+          "Pharynx and Larynx",
+          "Head and Neck",
+          "ENT Emergencies"
+        ]
+      },
+      "oph": {
+        "reference_book": "Kanski Ophthalmology",
+        "topics": [
+          "Refractive Errors",
+          "Anterior Segment",
+          "Glaucoma",
+          "Cataract",
+          "Posterior Segment",
+          "Neuro-ophthalmology",
+          "Pediatric Ophthalmology",
+          "Ocular Trauma"
+        ]
+      },
+      "derma": {
+        "reference_book": "Fitzpatrick Dermatology",
+        "topics": [
+          "Eczema and Dermatitis",
+          "Papulosquamous Disorders",
+          "Infections",
+          "Pigmentary Disorders",
+          "Hair and Nail Disorders",
+          "Bullous Disorders",
+          "Drug Reactions",
+          "Skin Tumors",
+          "STIs"
+        ]
+      },
+      "radio": {
+        "reference_book": "Grainger Radiology",
+        "topics": [
+          "Radiological Principles",
+          "Plain Radiography",
+          "CT and MRI",
+          "Ultrasound",
+          "Interventional Radiology",
+          "System-wise Imaging"
+        ]
+      },
+      "psm": {
+        "reference_book": "Park's PSM",
+        "topics": [
+          "Epidemiology",
+          "Biostatistics",
+          "Communicable Diseases",
+          "Non-Communicable Diseases",
+          "Nutrition",
+          "Environmental and Occupational Health",
+          "MCH and Family Planning",
+          "Health Administration"
+        ]
+      },
+      "fmt": {
+        "reference_book": "Parikh Forensic Medicine",
+        "topics": [
+          "Medical Jurisprudence",
+          "Identification",
+          "Death Investigation",
+          "Injuries",
+          "Asphyxia",
+          "Toxicology",
+          "Sexual Offenses"
+        ]
+      },
+      "cardianae": {
+        "reference_book": "Kaplan's Cardiac Anesthesia",
+        "topics": [
+          "Cardiovascular Physiology",
+          "Cardiac Pharmacology",
+          "Preoperative Assessment",
+          "Intraoperative Management",
+          "Cardiopulmonary Bypass",
+          "Postoperative Care",
+          "Congenital Heart Disease",
+          "Valvular Heart Disease"
+        ]
+      },
+      "cardio": {
+        "reference_book": "Braunwald's Heart Disease",
+        "topics": [
+          "Ischemic Heart Disease",
+          "Heart Failure",
+          "Arrhythmias",
+          "Valvular Heart Disease",
+          "Cardiomyopathy",
+          "Congenital Heart Disease",
+          "Hypertension",
+          "Interventional Cardiology"
+        ]
+      },
+      "cvts": {
+        "reference_book": "Sabiston Cardiothoracic Surgery",
+        "topics": [
+          "Coronary Artery Surgery",
+          "Valvular Surgery",
+          "Congenital Heart Surgery",
+          "Thoracic Surgery",
+          "Aortic Surgery",
+          "Heart Transplantation",
+          "Minimally Invasive Surgery"
+        ]
+      },
+      "em": {
+        "reference_book": "Tintinalli Emergency Medicine",
+        "topics": [
+          "Trauma Management",
+          "Cardiovascular Emergencies",
+          "Respiratory Emergencies",
+          "Neurological Emergencies",
+          "Toxicology",
+          "Resuscitation",
+          "Pediatric Emergencies"
+        ]
+      },
+      "endo": {
+        "reference_book": "Williams Endocrinology",
+        "topics": [
+          "Diabetes Mellitus",
+          "Thyroid Disorders",
+          "Adrenal Disorders",
+          "Pituitary Disorders",
+          "Calcium and Bone Disorders",
+          "Reproductive Endocrinology",
+          "Neuroendocrine Tumors"
+        ]
+      },
+      "gastro": {
+        "reference_book": "Sleisenger Gastroenterology",
+        "topics": [
+          "Esophageal Disorders",
+          "Gastric Disorders",
+          "Liver Diseases",
+          "Pancreatic Diseases",
+          "Inflammatory Bowel Disease",
+          "Functional GI Disorders",
+          "GI Bleeding"
+        ]
+      },
+      "genetics": {
+        "reference_book": "Thompson Genetics in Medicine",
+        "topics": [
+          "Chromosomal Disorders",
+          "Single Gene Disorders",
+          "Multifactorial Disorders",
+          "Molecular Genetics",
+          "Genetic Counseling",
+          "Cancer Genetics",
+          "Pharmacogenetics"
+        ]
+      },
+      "hemat": {
+        "reference_book": "Wintrobe's Hematology",
+        "topics": [
+          "Anemia",
+          "Leukemia",
+          "Lymphoma",
+          "Bleeding Disorders",
+          "Thrombotic Disorders",
+          "Bone Marrow Disorders",
+          "Transfusion Medicine"
+        ]
+      },
+      "hosp": {
+        "reference_book": "Healthcare Administration",
+        "topics": [
+          "Hospital Management",
+          "Healthcare Quality",
+          "Patient Safety",
+          "Healthcare Economics",
+          "Medical Records",
+          "Hospital Planning",
+          "Healthcare Laws"
+        ]
+      },
+      "nephro": {
+        "reference_book": "Brenner and Rector's Nephrology",
+        "topics": [
+          "Acute Kidney Injury",
+          "Chronic Kidney Disease",
+          "Glomerular Diseases",
+          "Tubulointerstitial Diseases",
+          "Electrolyte Disorders",
+          "Acid-Base Disorders",
+          "Dialysis",
+          "Kidney Transplantation"
+        ]
+      },
+      "neuro": {
+        "reference_book": "Adams and Victor's Neurology",
+        "topics": [
+          "Cerebrovascular Disease",
+          "Movement Disorders",
+          "Seizure Disorders",
+          "Neuromuscular Disorders",
+          "Demyelinating Diseases",
+          "Infections of CNS",
+          "Neurodegenerative Diseases"
+        ]
+      },
+      "neuroane": {
+        "reference_book": "Cottrell Neuroanesthesia",
+        "topics": [
+          "Neurophysiology",
+          "Neuromonitoring",
+          "Cranial Surgery Anesthesia",
+          "Spine Surgery Anesthesia",
+          "Vascular Neurosurgery",
+          "Pediatric Neuroanesthesia",
+          "Neurointensive Care"
+        ]
+      },
+      "nm": {
+        "reference_book": "Nuclear Medicine Essentials",
+        "topics": [
+          "Radiopharmaceuticals",
+          "Thyroid Imaging",
+          "Cardiac Nuclear Medicine",
+          "Bone Scintigraphy",
+          "PET-CT Imaging",
+          "Therapy Applications",
+          "Radiation Safety"
+        ]
+      },
+      "ns": {
+        "reference_book": "Youmans Neurosurgery",
+        "topics": [
+          "Head Trauma",
+          "Brain Tumors",
+          "Spine Disorders",
+          "Vascular Neurosurgery",
+          "Functional Neurosurgery",
+          "Pediatric Neurosurgery",
+          "Skull Base Surgery"
+        ]
+      },
+      "onco": {
+        "reference_book": "DeVita Oncology",
+        "topics": [
+          "Cancer Biology",
+          "Chemotherapy",
+          "Radiation Oncology",
+          "Surgical Oncology",
+          "Hematologic Malignancies",
+          "Solid Tumors",
+          "Palliative Care"
+        ]
+      },
+      "pmr": {
+        "reference_book": "Physical Medicine and Rehabilitation",
+        "topics": [
+          "Musculoskeletal Rehabilitation",
+          "Neurological Rehabilitation",
+          "Cardiac Rehabilitation",
+          "Prosthetics and Orthotics",
+          "Pain Management",
+          "Electrodiagnosis",
+          "Sports Medicine"
+        ]
+      },
+      "ps": {
+        "reference_book": "Grabb's Plastic Surgery",
+        "topics": [
+          "Wound Healing",
+          "Reconstructive Surgery",
+          "Aesthetic Surgery",
+          "Hand Surgery",
+          "Craniofacial Surgery",
+          "Burn Management",
+          "Microsurgery"
+        ]
+      },
+      "rheumat": {
+        "reference_book": "Kelley's Rheumatology",
+        "topics": [
+          "Rheumatoid Arthritis",
+          "Systemic Lupus Erythematosus",
+          "Spondyloarthropathies",
+          "Vasculitis",
+          "Crystal Arthropathies",
+          "Connective Tissue Diseases",
+          "Osteoarthritis"
+        ]
+      },
+      "tbc": {
+        "reference_book": "TB and Respiratory Medicine",
+        "topics": [
+          "Tuberculosis",
+          "Pneumonia",
+          "COPD",
+          "Asthma",
+          "Interstitial Lung Disease",
+          "Pleural Diseases",
+          "Lung Cancer"
+        ]
+      },
+      "uro": {
+        "reference_book": "Campbell-Walsh Urology",
+        "topics": [
+          "Urinary Tract Infections",
+          "Urolithiasis",
+          "Prostate Disorders",
+          "Bladder Disorders",
+          "Renal Tumors",
+          "Male Infertility",
+          "Pediatric Urology"
+        ]
+      },
+      "vs": {
+        "reference_book": "Rutherford's Vascular Surgery",
+        "topics": [
+          "Peripheral Arterial Disease",
+          "Venous Disorders",
+          "Aortic Aneurysms",
+          "Carotid Artery Disease",
+          "Vascular Trauma",
+          "Endovascular Surgery",
+          "Lymphatic Disorders"
+        ]
+      }
+    }
+  },
+  "mapping_rules": {
+    "priority_order": [
+      "1. Check cross-cutting topics first (Research, Biostat, Ethics, etc.)",
+      "2. Then check subject-specific topics",
+      "3. Use exact match when possible",
+      "4. Use semantic similarity for fuzzy matches",
+      "5. Confidence score must be >= 0.7 to accept mapping"
+    ],
+    "conflict_resolution": [
+      "If question fits both cross-cutting and subject-specific, prefer cross-cutting",
+      "If multiple subject topics match, choose most specific one",
+      "Never create new topics - only map to existing taxonomy"
+    ]
+  }
+}
